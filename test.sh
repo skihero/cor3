@@ -16,7 +16,7 @@ do
 	if [ ! -f $extracted_filename ]  ; 
 	then 
 		#download the file to disk 
-		wget "$filename" ; 
+		wget -c "$filename" ; 
 
 		if [[ $? -ne 0 ]]; 
 		then 
@@ -28,9 +28,12 @@ do
 
 	# to filename below 
 	filename=$extracted_filename
+	  
+        eog $filename & 
 	
  fi
 
+  
 # Run the binary with the filename  
 	./test.py $filename
 
